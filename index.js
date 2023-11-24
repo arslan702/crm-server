@@ -14,7 +14,11 @@ wss.on('connection', (ws) => {
   
     // Listen for messages from the frontend
     ws.on('message', (message) => {
-      console.log(`Received message from frontend: ${JSON.parse(message)}`);
+      try {
+       console.log(`Received message from frontend: ${JSON.parse(message)}`); 
+      } catch (error) {
+        console.error('Error parsing message:', error);
+      }
  });
 });
 
