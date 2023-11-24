@@ -1,6 +1,5 @@
 process.on('unhandledRejection', (reason, promise) => {
   console.error('Unhandled Rejection at:', promise, 'reason:', reason);
-  // You might want to add more robust error handling/logging here
 });
 
 const  { Telegraf} = require('telegraf');
