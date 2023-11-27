@@ -121,7 +121,7 @@ process.once('SIGINT', () => {
     wss.close();
   });
 
-const port = 443;
+const port = process.env.PORT || 8080;
 server.listen(port, () => {
   console.log(`WebSocket server is running on port ${port}`);
 });
