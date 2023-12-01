@@ -19,15 +19,27 @@ const wss = new WebSocket.Server({
 
 wss.on('connection', (ws) => {
     console.log('WebSocket Client Connected');
+
+    const pingInterval = setInterval(() => {
+      if (ws.readyState === WebSocket.OPEN) {
+        ws.ping();
+      } else {
+        clearInterval(pingInterval);
+      }
+    }, 30000);
+  
+    ws.on('pong', () => {
+      console.log('Received Pong');
+    });
   
     // Listen for messages from the frontend
-    ws.on('message', (message) => {
-      try {
-       console.log(`Received message from frontend: ${JSON.parse(message)}`); 
-      } catch (error) {
-        console.error('Error parsing message:', error);
-      }
- });
+//     ws.on('message', (message) => {
+//       try {
+//        console.log(`Received message from frontend: ${JSON.parse(message)}`); 
+//       } catch (error) {
+//         console.error('Error parsing message:', error);
+//       }
+//  });
 });
 
 bot.use(async (ctx, next) => {
