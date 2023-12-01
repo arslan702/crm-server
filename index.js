@@ -26,7 +26,7 @@ wss.on('connection', (ws) => {
       } else {
         clearInterval(pingInterval);
       }
-    }, 30000);
+    }, 3000);
   
     ws.on('pong', () => {
       console.log('Received Pong');
