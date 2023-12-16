@@ -10,7 +10,7 @@ const http = require('http');
 
 const server = http.createServer();
 
-const bot = new Telegraf('6020220501:AAE6cU6WA0VoRFofwz8-Eli5jA4anjm-ewE');
+// const bot = new Telegraf('6020220501:AAE6cU6WA0VoRFofwz8-Eli5jA4anjm-ewE');
 
 const wss = new WebSocket.Server({ 
   server: server,
